@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(180deg, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    background-size: cover;
+}
+
+body p {
+    font-size: 12px;
+}
+
+.container {
+    max-width: 800px;
+    width: 85vw;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+}
+
+.container-left,
+.container-right {
+    flex: 1;
+}
+
+.container-left {
+    background-image: url('images/bg-pattern-desktop.svg');
+    background-size: 180%;
+    background-repeat: no-repeat;
+    background-position: right 4vw bottom -20vh;
+}
+
+.container-left #image-1 {
+    position: relative;
+    top: 10%;
+    right: 10%;
+    width: 350px;
+    height: auto;
+}
+
+.container-left #image-2 {
+    position: relative;
+    top: -35%;
+    right: 18%;
+    width: 150px;
+    height: auto;
+}
+
+.container-right {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.question-answer {
+    margin-right: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.question:hover {
+    color: hsl(14, 88%, 65%);
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.answer {
+    padding-top: 20px;
+    display: none;
+    
+}
+
+.displayBlock {
+    display: block;
+}
+
+.attribution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+.attribution a {
+    color: #fff;
+    font-weight: 700;
+}
+
+.attribution a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+    body {
+        height: max-content;
+        flex-direction: column;
+        padding: 60px 0;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+    
+    .container-left {
+        background-image: url('images/bg-pattern-mobile.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+
+    .container-right {
+        justify-items: center;
+        align-items: center;
+    }
+
+    .question-answer {
+        margin: 0;
+        width: 85%;
+    }
+}
