@@ -1,29 +1,42 @@
-let showing = false;
+// create an array with all the question divs
 
-function showAnswer(number) {
-    console.log(showing);
-    if (showing == true) {
-        let answers = document.querySelectorAll('.answer');
-        console.log(answers);
-        console.log(answers[0]);
-        console.log(answers[1]);
-        console.log(answers[2]);
-        console.log(answers[3]);
-        console.log(answers[4]);
+const questions = document.querySelectorAll('.question');
+
+// add an event listener to each one of them
+
+questions.forEach(item => {
+    item.addEventListener('click', event => {
+
+        // first, select all the answers and make sure they are hidden by adding the class 'hidden' to them
+
+        let allAnswers = document.querySelectorAll('.answer');
+
+        allAnswers.forEach(answerItem => {
+            answerItem.classList.add('hidden');
+        })
+
+        questions.forEach(questionItem => {
+            questionItem.classList.remove('bold');
+        })
+
+        let allArrows = document.querySelectorAll('.arrow');
+
+        allArrows.forEach(arrowItem => {
+            arrowItem.classList.remove('rotated');
+        })
+
+        // after that, select the next element to the clicked element, an answer one
+
+        let answer = item.nextElementSibling;
+
+        // then, toggle the class 'hidden' of it
         
-        for (let i = 0; i < 5;i++) {
-            if (answers[i].classList.contains('.displayBlock') == true) {
-                answers[i].classList.remove('.displayBlock');
-            }
+        if (answer.classList.contains('hidden')) {
+            answer.classList.remove('hidden');
+            item.classList.add('bold');
+            let nextArrow = item.lastElementChild;
+            nextArrow.classList.add('rotated');
         }
-        showing = false;
-    }
-    let query = `#aswr${number}`;
-    document.querySelector(query).classList.toggle('displayBlock');
-    if (showing == false) {
-        showing = true;
-    }
-    else {
-        showing = false;
-    }
-}
+        
+    })
+})
